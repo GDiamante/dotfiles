@@ -1,71 +1,59 @@
-rofi.background: #151718
-rofi.foreground: #d6d6d6
-rofi.hlbg: #41535B
-rofi.hlfg: #ffffff
-rofi.bc: #151718
-rofi.eh: 2
-rofi.width: 100
-rofi.padding: 200
-rofi.lines: 5
-rofi.line-margin: 5
-rofi.font: System San Francisco Display 18
-rofi.opacity: 80
+rofi.color-enabled: true
+rofi.color-window: #002b37, #002b37, #003642
+rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
+rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
+rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
 
-URxvt*background:                     #151718
-URxvt*foreground:                     #d6d6d6
-URxvt*cursorColor:                    #d6d6d6
+URxvt.font: xft:Terminus:size=14
 
-! URxvt*colorBD:                        color
-! URxvt*colorIT:                        color
-! URxvt*colorUL:                        color
-! URxvt*colorRV:                        color
-! URxvt*underlineColor:                 color
-URxvt*scrollColor:                    #d6d6d6
-! URxvt*troughColor:                    color
-URxvt*highlightColor:                 #3B758C
-URxvt*highlightTextColor:             #43a5d5
-! URxvt*cursorColor2:                   color
-! URxvt*pointerColor:                   color
-! URxvt*pointerColor2:                  color
-URxvt*borderColor:                    #101218
-! URxvt*tab-bg:                         colour
-! URxvt*tab-fg:                         colour
-! URxvt*tabbar-bg:                      colour
-! URxvt*tabbar-fg:                      colour
+! vim: set filetype=xdefaults :
+URxvt.foreground: #D7D0C7
+URxvt.background: #151515
 
-URxvt*color0:                         #151718
-URxvt*color1:                         #Cd3f45
-URxvt*color2:                         #9fca56
-URxvt*color3:                         #e6cd69
-URxvt*color4:                         #55b5db
-URxvt*color5:                         #a074c4
-URxvt*color6:                         #55dbbe
-URxvt*color7:                         #d6d6d6
-URxvt*color8:                         #41535B
-URxvt*color9:                         #Cd3f45
-URxvt*color10:                        #9fca56
-URxvt*color11:                        #e6cd69
-URxvt*color12:                        #55b5db
-URxvt*color13:                        #a074c4
-URxvt*color14:                        #55dbbe
-URxvt*color15:                        #ffffff
+!URxvt.background: #232323
+!URxvt.foreground: #A0A0A0
 
-! 256 color space
-URxvt*color16:                        #db7b55
-URxvt*color17:                        #8a553f
-URxvt*color18:                        #8ec43d
-URxvt*color19:                        #3B758C
-URxvt*color20:                        #43a5d5
-URxvt*color21:                        #eeeeee
+URxvt.colorBD:    #CFCFCF
+URxvt.colorUL:    #A0A0A0
+URxvt.colorIT:    #686868
 
-Xcursor.size: 16W
-URxvt.scrollBar: false
-URxvt.font: xft:Terminus:size=11
-URxvt.url-launcher: /usr/bin/firefox
-URxvt.letterSpace: 0
+!BLK
+URxvt.color0:     #303030
+URxvt.color8:     #686868
 
-URxvt*loginShell:  true
-URxvt*fading:  30
+!RED
+URxvt.color9:     #FF6666
+URxvt.color1:     #E60000
 
-URxvt.internalBorder: 0
-URxvt.externalBorder: 0
+!GRN
+URxvt.color10:    #A3D572
+URxvt.color2:     #6D9E3F
+
+!BLU
+URxvt.color12:    #4FA6FC
+URxvt.color4:     #6095C5
+
+!YEL
+URxvt.color11:    #EFBD8B
+URxvt.color3:     #B58858
+
+!CYN
+URxvt.color14:    #75DAA9
+URxvt.color6:     #3BA275
+
+!MAG
+URxvt.color13:    #E5B0FF
+URxvt.color5:     #AC7BDE
+
+!WHT
+URxvt.color7:     #CFCFCF
+URxvt.color15:    #FFFFFF
+
+URxvt*borderColor:        #151515
+URxvt*colorBD:            #ffffff
+URxvt*cursorColor:        #ff8939
+URxvt*cursorColor2:       #151515
+
+URxvt*scrollBar_right:        true
+URxvt*scrollColor:        #151515
+
