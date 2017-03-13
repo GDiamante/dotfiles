@@ -1,28 +1,26 @@
+#Set modifier
 set $mod Mod1
 
 #Borderless Rice Modes
-#new_window pixel 1
+new_window pixel 4
+new_float pixel 4
+hide_edge_borders vertical
 
 #System Font
-font pango:System San Francisco Display 9
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango: DejaVu Sans Book 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-#OR dmenu with no services, only applications
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
 #Replace dmenu with rofi
 bindsym $mod+d exec rofi -show run
 
@@ -32,7 +30,6 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -44,16 +41,13 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split in horizontal or vertical orientation
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -77,27 +71,27 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: 
-bindsym $mod+2 workspace 2: 
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6: 
+bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8: 
-bindsym $mod+9 workspace 9: 
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: 
-bindsym $mod+Shift+2 move container to workspace 2: 
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6: 
+bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8: 
-bindsym $mod+Shift+9 move container to workspace 9: 
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
@@ -115,7 +109,6 @@ mode "resize" {
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -128,13 +121,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#	font pango:Source Sans Pro-10 10
-#        status_command i3status -c ~/.i3/i3status.conf	
-#}
-
+# Volume Control
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 
@@ -142,55 +129,67 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym Mod4+Down exec --no-startup-id playcontrols toggle
+bindsym Mod4+Up exec --no-startup-id playcontrols stop
+bindsym Mod4+Left exec --no-startup-id playcontrols prev
+bindsym Mod4+Right exec --no-startup-id playcontrols next
+
+# Screen Shots
+bindsym Print exec --no-startup-id scrot 'scrot%Y-%m-%d-%T.png' -e 'mv $f ~/Pictures/ScreenShots'
+
+# Open Programs
+bindsym $mod+p exec --no-startup-id pcmanfm
+bindsym $mod+shift+b exec --no-startup-id firefox
+bindsym $mod+shift+s exec --no-startup-id spotify --ui.track_notifications_enabled=false
 
 #Theme colors
-  set $base01 #1f222d
+  set $base01 #1F222D
   set $base02 #252936
-  set $base03 #7780a1
-  set $base04 #C0C5CE
-  set $base05 #d1d4e0
-  set $base06 #C9CCDB
-  set $base07 #ffffff
-  set $base08 #ee829f
-
-#Kumar's code for using i3blocks
-bar {
-  	font pango:System San Francisco Display, FontAwesome 10
-	status_command i3blocks -c ~/.i3/i3blocks.conf
-  colors {
-    separator $base03
-      background $base01
-      statusline $base05
+  set $base03 #7780A1
+  
+  #Border and active squares around numbers
+  set $base04 #F2F2F2
+  #99d6ff
+  #FF8C66 
+  #66B3FF
  
-  focused_workspace  $base01 $base01    $base07
-  active_workspace   $base01 $base02    $base03
-  inactive_workspace $base01 $base01    $base03
-  urgent_workspace   $base01 $base01    $base08
+  set $base05 #151515
+  set $base06 #C9CCDB
+  set $base07 #808080
+  set $base08 #EE829F
+
+#i3blocks
+bar {
+  font pango: DejaVu Sans, FontAwesome 11 
+  status_command i3blocks -c ~/.i3/i3blocks.conf
+
+  colors {
+    separator $base06
+    background $base01
+    statusline $base06
+ 
+    focused_workspace  $base04 $base04 $base01
+    active_workspace   $base01 $base07 $base01
+    inactive_workspace $base01 $base07 $base01
+    urgent_workspace   $base01 $base07 $base08
   }
+  position bottom 
 }
 
-client.focused           $base01 $base01 $base07 $base01
+client.focused           $base04 $base04 $base02 $base04
 client.focused_inactive  $base01 $base02 $base03 $base01
-client.unfocused	 $base01 $base01 $base03 $base01
+client.unfocused	 $base05 $base05 $base02 $base05
 client.urgent            $base01 $base01 $base08 $base01
 
 bindsym $mod+shift+x exec i3lock
 
-# scrot
-bindsym Print exec scrot -e 'mv $f ~/Pictures/scrots'
-# scrot- select window or rectangle
-bindsym Mod1+Print exec scrot -s 'mv $f ~/Pictures/scrots'
-
-
-#Executable programs
+# Startup programs
 exec compton
-exec redshift
-exec_always feh --bg-scale ~/Pictures/Wallpapers/wp2.jpg 
+exec dmenu
+exec redshift-gtk -l 43.74:-79.39
+exec_always feh --bg-scale ~/Pictures/Wallpapers/scenery1.jpg 
